@@ -5,6 +5,13 @@ const handleNews = require('./routes/news');
 const handleMenu = require('./routes/menu'); // <- добавено
 
 const server = http.createServer((req, res) => {
+
+    if (req.url === '/' || req.url === '/index' || req.url === '/home') {
+        res.writeHead(200, { 'Content-Type': 'text/plain' });
+        res.end('Backend is running!');
+        return;
+    }
+    
     // Първо проверяваме за API заявките
     if (req.url === '/api/menu') {
         // Променен път за надеждно намиране на JSON
@@ -66,3 +73,4 @@ const server = http.createServer((req, res) => {
 
 const PORT = process.env.PORT || 3000;
 server.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+
