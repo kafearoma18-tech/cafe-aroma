@@ -1,0 +1,31 @@
+[
+  {
+    "category": "Кафе напитки",
+    "name": "Еспресо",
+    "size": "30 мл",
+    "price": "2,50 лв",
+    "image": "https://i.imgur.com/PkBnre1.jpeg"
+  },
+  {
+    "category": "Кафе напитки",
+    "name": "Капучино",
+    "size": "200 мл",
+    "price": "4,00 лв",
+    "image": "https://i.imgur.com/UVIXUG7.png"
+  },
+  {
+    "category": "Сладкиши",
+    "name": "Шоколадов кекс",
+    "size": "150 г",
+    "price": "4,50 лв",
+    "image": "https://i.imgur.com/EUJCHhb.jpeg"
+  },
+  {
+    "category": "Специалитети",
+    "name": "Мока с шоколадов сироп",
+    "size": "250 мл",
+    "price": "5,00 лв",
+    "image": "https://newcoffeeworld.com/wp-content/uploads/2025/03/food-photographer-jennifer-pallian-X2gM-SIufpU-unsplash-scaled.jpg" 
+  }
+]
+

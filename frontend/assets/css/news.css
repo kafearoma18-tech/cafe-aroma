@@ -1,0 +1,204 @@
+/* =========================================================
+   Основни стилове за уебсайта на кафе-пекарна "Арома"
+   ========================================================= */
+
+/* Основни настройки */
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    overflow-x: hidden; /* предотвратява хоризонтално скролиране */
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    font-family: "Segoe UI", Arial, sans-serif;
+    background-color: #fffaf4;
+    color: #333;
+    line-height: 1.6;
+}
+
+main {
+    flex: 1; /* разтяга се да заеме останалото пространство */
+    max-width: 1000px;
+    margin: auto;
+    padding: 20px;
+}
+
+/* ---------------------------------------------------------
+   HEADER И НАВИГАЦИЯ
+   --------------------------------------------------------- */
+header {
+    background-color: #8b5e3c;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    width: 100%;
+    min-width: 230px; /* предотвратява свиване под минимална ширина */
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2em;
+    letter-spacing: 1px;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 10px 0 0;
+}
+
+nav ul li {
+    display: inline-block;
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+nav ul li a:hover,
+nav ul li a.active {
+    text-decoration: underline;
+    color: #ffe9d1;
+}
+
+/* ---------------------------------------------------------
+   Секция новини
+   --------------------------------------------------------- */
+.news-intro {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.news-list {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.news-item {
+    background-color: #f8e5d1;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.news-item h3 {
+    color: #8b5e3c;
+    margin-top: 0;
+}
+
+.news-item p {
+    margin: 5px 0;
+}
+
+/* ---------------------------------------------------------
+   FOOTER
+   --------------------------------------------------------- */
+footer {
+    background-color: #8b5e3c;
+    color: white;
+    text-align: center;
+    padding: 15px 0;
+    margin-top: 30px;
+    width: 100%;
+    min-width: 230px; /* предотвратява свиване под минимална ширина */
+}
+
+.footer-links a {
+    color: #ffe9d1;
+    margin: 0 8px;
+    text-decoration: none;
+}
+
+.footer-links a:hover {
+    text-decoration: underline;
+}
+
+/* =========================================================
+   РЕСПОНСИВ ДИЗАЙН
+   ========================================================= */
+
+/* --- За таблети (до 768px ширина) --- */
+@media (max-width: 768px) {
+    header {
+        padding: 15px 0;
+    }
+
+    header h1 {
+        font-size: 1.6em;
+    }
+
+    nav ul {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
+    }
+
+    nav ul li {
+        display: block;
+        margin: 0;
+    }
+
+    main {
+        padding: 15px;
+    }
+
+    h2, h3 {
+        text-align: center;
+    }
+}
+
+/* --- За телефони (до 480px ширина) --- */
+@media (max-width: 480px) {
+    body {
+        font-size: 15px;
+    }
+
+    header h1 {
+        font-size: 1.4em;
+    }
+
+    nav ul {
+        width: 100%;
+        text-align: center;
+        padding: 0;
+        margin: 0;
+    }
+
+    nav ul li {
+        width: 100%;
+    }
+
+    nav ul li a {
+        display: block;
+        width: 100%;
+        padding: 10px 0;
+    }
+
+    main {
+        padding: 10px;
+    }
+
+    footer {
+        font-size: 0.9em;
+        padding: 10px 0;
+    }
+
+    .footer-links a {
+        display: inline-block;
+        margin: 4px;
+    }
+}

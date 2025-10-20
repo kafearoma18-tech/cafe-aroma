@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Меню на кафе-пекарна Арома – кафета, сладкиши и специални предложения. Разгледайте нашето разнообразие от продукти.">
+    <meta name="keywords" content="меню, кафе, сладкиши, специалитети, кафе Арома, напитки, десерти, пекарна София">
+    <title>Меню | Кафе-пекарна Арома</title>
+    <link rel="stylesheet" href="./assets/css/menu.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Начало</a></li>
+                <li><a href="about.html">За нас</a></li>
+                <li><a href="menu.html" class="active">Меню</a></li>
+                <li><a href="news.html">Новини</a></li>
+                <li><a href="gallery.html">Галерия</a></li>
+                <li><a href="contacts.html">Контакти</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="menu-intro">
+            <h2>Нашето меню</h2>
+            <p>Вкусни кафе напитки, сладкиши и специални предложения за всеки вкус. Всички продукти са приготвени с любов и качествени съставки.</p>
+        </section>
+
+        <section id="menu-container">
+        
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Кафе-пекарна „Арома“ | Всички права запазени.</p>
+        <div class="footer-links">
+            <a href="index.html">Начало</a> |
+            <a href="menu.html">Меню</a> |
+            <a href="contacts.html">Контакти</a> |
+            <a href="https://www.facebook.com" target="_blank">Facebook</a> |
+            <a href="https://www.instagram.com" target="_blank">Instagram</a>
+        </div>
+    </footer>
+
+    <script>
+    fetch('/api/menu')
+      .then(res => res.json())
+      .then(menu => {
+        const container = document.getElementById('menu-container');
+
+        // Групиране по категории
+        const categories = {};
+        menu.forEach(item => {
+          if (!categories[item.category]) categories[item.category] = [];
+          categories[item.category].push(item);
+        });
+
+        
+        for (const category in categories) {
+          const section = document.createElement('section');
+          section.classList.add('menu-categories');
+
+          const h3 = document.createElement('h3');
+          h3.textContent = category;
+          section.appendChild(h3);
+
+          const table = document.createElement('table');
+          const header = document.createElement('tr');
+          ['Продукт', 'Размер/брой', 'Цена', 'Изображение'].forEach(text => {
+            const th = document.createElement('th');
+            th.textContent = text;
+            header.appendChild(th);
+          });
+          table.appendChild(header);
+
+          categories[category].forEach(item => {
+            const row = document.createElement('tr');
+            row.innerHTML = `
+              <td>${item.name}</td>
+              <td>${item.size}</td>
+              <td>${item.price}</td>
+              <td><img src="${item.image}" alt="${item.name}" style="width:80px; border-radius:6px;"></td>
+            `;
+            table.appendChild(row);
+          });
+
+          section.appendChild(table);
+          container.appendChild(section);
+        }
+      })
+      .catch(err => console.error('Грешка при зареждане на менюто:', err));
+    </script>
+</body>
+</html>
