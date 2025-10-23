@@ -47,7 +47,7 @@
     </footer>
 
     <script>
-    fetch('/api/news')
+    fetch('https://cafe-aroma-be.onrender.com/api/news')
       .then(res => res.json())
       .then(news => {
         const container = document.getElementById('news-container');
@@ -70,3 +70,4 @@
     </script>
 </body>
 </html>
+
