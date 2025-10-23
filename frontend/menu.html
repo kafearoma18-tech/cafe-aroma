@@ -45,7 +45,7 @@
     </footer>
 
     <script>
-    fetch('/api/menu')
+    fetch('https://cafe-aroma-be.onrender.com/api/menu')
       .then(res => res.json())
       .then(menu => {
         const container = document.getElementById('menu-container');
@@ -94,3 +94,4 @@
     </script>
 </body>
 </html>
+
